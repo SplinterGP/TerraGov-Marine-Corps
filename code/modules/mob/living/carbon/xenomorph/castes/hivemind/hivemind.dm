@@ -7,15 +7,14 @@
 	icon_state = "hivemind_marker"
 	icon = 'icons/mob/cameramob.dmi'
 
-	status_flags = GODMODE | INCORPOREAL
-	resistance_flags = RESIST_ALL
+	status_flags = INCORPOREAL
 	density = FALSE
 	throwpass = TRUE
 
 	a_intent = INTENT_HELP
 
-	health = 1000
-	maxHealth = 1000
+	health = 100
+	maxHealth = 100
 	plasma_stored = 5
 	tier = XENO_TIER_ZERO
 	upgrade = XENO_UPGRADE_ZERO
@@ -28,7 +27,7 @@
 	move_on_shuttle = TRUE
 
 	hud_type = /datum/hud/hivemind
-	hud_possible = list(PLASMA_HUD, PHEROMONE_HUD, QUEEN_OVERWATCH_HUD)
+	hud_possible = list(HEALTH_HUD_XENO, PLASMA_HUD, PHEROMONE_HUD, QUEEN_OVERWATCH_HUD)
 
 	var/obj/effect/alien/hivemindcore/core
 
@@ -55,6 +54,28 @@
 	forceMove(get_turf(core))
 	to_chat(src, "<span class='xenonotice'>We were on top of fire, we got moved to our core.")
 
+/mob/living/carbon/xenomorph/hivemind/handle_critical_health_updates()
+	if(!(status_flags & INCORPOREAL))
+		dematerialize()
+	heal_wounds(1000)
+	
+
+/mob/living/carbon/xenomorph/hivemind/proc/materialize()
+	DISABLE_BITFIELD(status_flags, INCORPOREAL)
+	invisibility = 0
+	throwpass = FALSE
+	icon = 'icons/Xeno/48x48_Xenos.dmi'
+	icon_state = "Drone Walking"
+	alpha = 150
+
+/mob/living/carbon/xenomorph/hivemind/proc/dematerialize()
+	ENABLE_BITFIELD(status_flags, INCORPOREAL)
+	invisibility = INVISIBILITY_MAXIMUM
+	throwpass = TRUE
+	icon = 'icons/mob/cameramob.dmi'
+	icon_state = "hivemind_marker"
+	alpha = 255
+
 /mob/living/carbon/xenomorph/hivemind/proc/check_weeds(turf/T)
 	SHOULD_BE_PURE(TRUE)
 	. = TRUE
@@ -79,6 +100,9 @@
 /mob/living/carbon/xenomorph/hivemind/Move(NewLoc, Dir = 0)
 	if(!check_weeds(NewLoc))
 		return FALSE
+	
+	if(!(status_flags & INCORPOREAL))
+		return ..()
 
 	// FIXME: Port canpass refactor from tg
 	// Don't allow them over the timed_late doors
@@ -115,7 +139,10 @@
 /mob/living/carbon/xenomorph/hivemind/DblClickOn(atom/A, params)
 	if(!istype(A, /obj/effect/alien/weeds))
 		return
-
+	
+	if(!status_flags & INCORPOREAL)
+		if(!do_after(src, 3 SECONDS, A))
+			return
 	forceMove(get_turf(A))
 
 /mob/living/carbon/xenomorph/hivemind/CtrlClick(mob/user)
@@ -140,12 +167,12 @@
 	return //Unable to change intent, forced help intent
 
 /// Hiveminds specifically have no health hud element
-/mob/living/carbon/xenomorph/hivemind/med_hud_set_health()
-	return
+///mob/living/carbon/xenomorph/hivemind/med_hud_set_health()
+	//return
 
 /// Hiveminds specifically have no status hud element
-/mob/living/carbon/xenomorph/hivemind/med_hud_set_status()
-	return
+////mob/living/carbon/xenomorph/hivemind/med_hud_set_status()
+//	return
 
 
 // =================

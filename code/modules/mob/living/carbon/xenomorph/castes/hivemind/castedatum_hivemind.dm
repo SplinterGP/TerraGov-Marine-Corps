@@ -21,7 +21,8 @@
 	plasma_gain = 15 // This is 1 weed every 10 secs.
 
 	// *** Health *** //
-	max_health = 1000
+	max_health = 100
+	crit_health = -INFINITY
 
 	// *** Evolution *** //
 	upgrade_threshold = 300
@@ -51,6 +52,7 @@
 		/datum/action/xeno_action/return_to_core,
 		/datum/action/xeno_action/plant_weeds/slow,
 		/datum/action/xeno_action/psychic_whisper,
+		/datum/action/xeno_action/materialization,
 	)
 
 /datum/xeno_caste/hivemind/young
@@ -66,6 +68,9 @@
 	plasma_max = 200 //  75 is the cost of plant_weed
 	plasma_gain = 45 // This is 3 weed every 10 secs.
 
+	// *** Health *** //
+	max_health = 125
+
 	// *** Evolution *** //
 	upgrade_threshold = 500
 
@@ -75,6 +80,7 @@
 		/datum/action/xeno_action/plant_weeds/slow,
 		/datum/action/xeno_action/psychic_whisper,
 		/datum/action/xeno_action/activable/psychic_cure,
+		/datum/action/xeno_action/materialization,
 	)
 
 
@@ -87,7 +93,7 @@
 	plasma_gain = 60 // This is 4 weed every 10 secs.
 
 	// *** Health *** //
-	max_health = 1000
+	max_health = 150
 
 	// *** Evolution *** //
 	upgrade_threshold = 700
@@ -99,6 +105,7 @@
 		/datum/action/xeno_action/psychic_whisper,
 		/datum/action/xeno_action/activable/psychic_cure,
 		/datum/action/xeno_action/toggle_pheromones,
+		/datum/action/xeno_action/materialization,
 	)
 
 /datum/xeno_caste/hivemind/ancient
@@ -111,7 +118,7 @@
 	plasma_gain = 75 // This is 5 weed every 10 secs.
 
 	// *** Health *** //
-	max_health = 1000
+	max_health = 175
 
 	// *** Evolution *** //
 	upgrade_threshold = 1000
@@ -125,4 +132,5 @@
 		/datum/action/xeno_action/choose_resin,
 		/datum/action/xeno_action/toggle_pheromones,
 		/datum/action/xeno_action/activable/secrete_resin/slow,
+		/datum/action/xeno_action/materialization,
 	)
