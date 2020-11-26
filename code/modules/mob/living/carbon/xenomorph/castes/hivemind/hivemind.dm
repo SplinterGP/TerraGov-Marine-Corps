@@ -30,6 +30,8 @@
 	hud_possible = list(HEALTH_HUD_XENO, PLASMA_HUD, PHEROMONE_HUD, QUEEN_OVERWATCH_HUD)
 
 	var/obj/effect/alien/hivemindcore/core
+	var/icon/maskicon = icon('icons/Xeno/2x2_Xenos.dmi', "Screecher Walking")
+
 
 /mob/living/carbon/xenomorph/hivemind/Initialize(mapload)
 	. = ..()
@@ -64,9 +66,16 @@
 	DISABLE_BITFIELD(status_flags, INCORPOREAL)
 	invisibility = 0
 	throwpass = FALSE
-	icon = 'icons/Xeno/48x48_Xenos.dmi'
-	icon_state = "Drone Walking"
-	alpha = 150
+	icon = 'icons/Xeno/2x2_Xenos.dmi'
+	icon_state = "weed_animated_mask"
+	//hivemind_mask.icon = 'icons/Xeno/2x2_Xenos.dmi'
+	//hivemind_mask.icon_state = "Screecher Walking"
+	//var/icon/iconweed = icon('icons/Xeno/2x2_Xenos.dmi', "Screecher Walking", dir = src.dir)
+	//overlays += iconweed
+	//filters += filter(type = "alpha", icon = iconweed)
+	add_filter("weedveins", 2, list("type" = "alpha", "icon" = maskicon))
+	//add_filter("weedveins", 2, list("type" = "alpha", "icon" = icon('icons/Xeno/2x2_Xenos.dmi', "weed_animated_mask", dir = src.dir)))
+	//add_filter("weedveins", 5, list("type" = "layering", "icon" = iconweed))
 
 /mob/living/carbon/xenomorph/hivemind/proc/dematerialize()
 	ENABLE_BITFIELD(status_flags, INCORPOREAL)
@@ -74,7 +83,7 @@
 	throwpass = TRUE
 	icon = 'icons/mob/cameramob.dmi'
 	icon_state = "hivemind_marker"
-	alpha = 255
+	remove_filter("weedveins")
 
 /mob/living/carbon/xenomorph/hivemind/proc/check_weeds(turf/T)
 	SHOULD_BE_PURE(TRUE)
@@ -102,6 +111,7 @@
 		return FALSE
 	
 	if(!(status_flags & INCORPOREAL))
+		//maskicon.dir = dir
 		return ..()
 
 	// FIXME: Port canpass refactor from tg
@@ -133,8 +143,8 @@
 /mob/living/carbon/xenomorph/hivemind/update_icons()
 	return FALSE
 
-/mob/living/carbon/xenomorph/hivemind/set_lying_angle()
-	CRASH("Something caused a hivemind to change its lying angle. Add checks to prevent that.")
+///mob/living/carbon/xenomorph/hivemind/set_lying_angle()
+	//CRASH("Something caused a hivemind to change its lying angle. Add checks to prevent that.")
 
 /mob/living/carbon/xenomorph/hivemind/DblClickOn(atom/A, params)
 	if(!istype(A, /obj/effect/alien/weeds))
@@ -170,8 +180,8 @@
 ///mob/living/carbon/xenomorph/hivemind/med_hud_set_health()
 	//return
 
-/// Hiveminds specifically have no status hud element
-////mob/living/carbon/xenomorph/hivemind/med_hud_set_status()
+///Hiveminds specifically have no status hud element
+///mob/living/carbon/xenomorph/hivemind/med_hud_set_status()
 //	return
 
 
