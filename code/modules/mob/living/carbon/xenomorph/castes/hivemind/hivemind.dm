@@ -57,10 +57,11 @@
 	to_chat(src, "<span class='xenonotice'>We were on top of fire, we got moved to our core.")
 
 /mob/living/carbon/xenomorph/hivemind/handle_critical_health_updates()
-	if(!(status_flags & INCORPOREAL))
-		dematerialize()
+	SEND_SIGNAL(src, COMSIG_XENOMORPH_MATERIALIZATION)
 	heal_wounds(1000)
-	
+
+/mob/living/carbon/xenomorph/hivemind/get_death_threshold()
+	return -INFINITY
 
 /mob/living/carbon/xenomorph/hivemind/proc/materialize()
 	DISABLE_BITFIELD(status_flags, INCORPOREAL)
@@ -110,8 +111,7 @@
 	if(!check_weeds(NewLoc))
 		return FALSE
 	
-	if(!(status_flags & INCORPOREAL))
-		//maskicon.dir = dir
+	if(!CHECK_BITFIELD(status_flags, INCORPOREAL))
 		return ..()
 
 	// FIXME: Port canpass refactor from tg
@@ -150,7 +150,7 @@
 	if(!istype(A, /obj/effect/alien/weeds))
 		return
 	
-	if(!status_flags & INCORPOREAL)
+	if(!CHECK_BITFIELD(status_flags, INCORPOREAL))
 		if(!do_after(src, 3 SECONDS, A))
 			return
 	forceMove(get_turf(A))
