@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <base href="../" />
+    <link rel="stylesheet" href="dmdoc.css" />
+    <title>&#x2F;obj&#x2F;item - byond</title>
+</head>
+<body>
+<header>
+    <a href="index.html">byond</a> -
+    <a href="index.html#modules">Modules</a> -
+    <a href="index.html#types">Types</a>
+ &mdash; <a href="obj/item.html#var">Var Details</a> - <a href="obj/item.html#proc">Proc Details</a></header>
+<main>
+<h1>item <aside>/<a href="obj.html">obj</a>/<a href="obj/item.html">item</a></aside>
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/game/objects/items.dm#L1">
+        <img src="git.png" width="16" height="16" title="code&#x2F;game&#x2F;objects&#x2F;items.dm 1"/></a></h1>
+
+<table class="summary" cellspacing="0"><tr><td colspan="2"><h2>Vars</h2></td></tr>
+            <tr><th><a href="obj/item.html#var/blood_sprite_state">blood_sprite_state</a></th><td>The iconstate that the items use for blood on blood.dmi when drawn on the mob.</td></tr>
+            <tr><th><a href="obj/item.html#var/default_worn_icon">default_worn_icon</a></th><td>icon equivalent but for on-mob icon.</td></tr>
+            <tr><th><a href="obj/item.html#var/item_icons">item_icons</a></th><td></td></tr>
+            <tr><th><a href="obj/item.html#var/item_state_slots">item_state_slots</a></th><td></td></tr>
+            <tr><th><a href="obj/item.html#var/item_state_worn">item_state_worn</a></th><td>tells if the item shall use item_state for non-inhands, needed due to some items using item_state only for inhands and not worn.</td></tr>
+            <tr><th><a href="obj/item.html#var/worn_layer">worn_layer</a></th><td>specific layer for on-mob icon.</td></tr><tr><td colspan="2"><h2>Procs</h2></td></tr>
+            <tr><th><a href="obj/item.html#proc/apply_accessories">apply_accessories</a></th><td>applies any accessory the item may have, called by make_worn_icon().</td></tr>
+            <tr><th><a href="obj/item.html#proc/apply_blood">apply_blood</a></th><td>applies blood on the item, called by make_worn_icon().</td></tr>
+            <tr><th><a href="obj/item.html#proc/apply_custom">apply_custom</a></th><td>applies any custom thing to the sprite, caled by make_worn_icon().</td></tr>
+            <tr><th><a href="obj/item.html#proc/get_worn_icon_file">get_worn_icon_file</a></th><td>gets what icon dmi file shall be used for the on-mob sprite</td></tr>
+            <tr><th><a href="obj/item.html#proc/get_worn_icon_state">get_worn_icon_state</a></th><td>Returns the state that should be used for the on-mob icon</td></tr>
+            <tr><th><a href="obj/item.html#proc/make_worn_icon">make_worn_icon</a></th><td>Generates worn icon for sprites on-mob.</td></tr>
+            <tr><th><a href="obj/item.html#proc/unequipped">unequipped</a></th><td>Called when an item is removed from an equipment slot. The loc should still be in the unequipper.</td></tr></table>
+    <h2 id="var">Var Details</h2><h3 id="var/blood_sprite_state"><aside class="declaration">var </aside>blood_sprite_state
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/game/objects/items.dm#L9">
+        <img src="git.png" width="16" height="16" title="code&#x2F;game&#x2F;objects&#x2F;items.dm 9"/></a></h3>
+        <p>The iconstate that the items use for blood on blood.dmi when drawn on the mob.</p><h3 id="var/default_worn_icon"><aside class="declaration">var </aside>default_worn_icon
+            <aside>&ndash; /icon</aside>
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/game/objects/items.dm#L84">
+        <img src="git.png" width="16" height="16" title="code&#x2F;game&#x2F;objects&#x2F;items.dm 84"/></a></h3>
+        <p>icon equivalent but for on-mob icon.</p><h3 id="var/item_icons"><aside class="declaration">var </aside>item_icons
+            <aside>&ndash; /list</aside>
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/game/objects/items.dm#L82">
+        <img src="git.png" width="16" height="16" title="code&#x2F;game&#x2F;objects&#x2F;items.dm 82"/></a></h3>
+        <blockquote>
+<p>LazyList&lt; Used to specify the icon file to be used when the item is worn in a certain slot. icon_override or sprite_sheets are set they will take precendence over this, assuming they apply to the slot in question.</p>
+</blockquote><h3 id="var/item_state_slots"><aside class="declaration">var </aside>item_state_slots
+            <aside>&ndash; /list</aside>
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/game/objects/items.dm#L80">
+        <img src="git.png" width="16" height="16" title="code&#x2F;game&#x2F;objects&#x2F;items.dm 80"/></a></h3>
+        <blockquote>
+<p>Lazylist&lt; that overrides the default item_state for particular slots.</p>
+</blockquote><h3 id="var/item_state_worn"><aside class="declaration">var </aside>item_state_worn
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/game/objects/items.dm#L88">
+        <img src="git.png" width="16" height="16" title="code&#x2F;game&#x2F;objects&#x2F;items.dm 88"/></a></h3>
+        <p>tells if the item shall use item_state for non-inhands, needed due to some items using item_state only for inhands and not worn.</p><h3 id="var/worn_layer"><aside class="declaration">var </aside>worn_layer
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/game/objects/items.dm#L86">
+        <img src="git.png" width="16" height="16" title="code&#x2F;game&#x2F;objects&#x2F;items.dm 86"/></a></h3>
+        <p>specific layer for on-mob icon.</p><h2 id="proc">Proc Details</h2><h3 id="proc/apply_accessories"><aside class="declaration">proc </aside>apply_accessories<aside>(/image/standing) 
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/game/objects/items.dm#L1090">
+        <img src="git.png" width="16" height="16" title="code&#x2F;game&#x2F;objects&#x2F;items.dm 1090"/></a></aside>
+        </h3>
+        <p>applies any accessory the item may have, called by make_worn_icon().</p><h3 id="proc/apply_blood"><aside class="declaration">proc </aside>apply_blood<aside>(/image/standing) 
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/game/objects/items.dm#L1086">
+        <img src="git.png" width="16" height="16" title="code&#x2F;game&#x2F;objects&#x2F;items.dm 1086"/></a></aside>
+        </h3>
+        <p>applies blood on the item, called by make_worn_icon().</p><h3 id="proc/apply_custom"><aside class="declaration">proc </aside>apply_custom<aside>(/image/standing) 
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/game/objects/items.dm#L1082">
+        <img src="git.png" width="16" height="16" title="code&#x2F;game&#x2F;objects&#x2F;items.dm 1082"/></a></aside>
+        </h3>
+        <p>applies any custom thing to the sprite, caled by make_worn_icon().</p><h3 id="proc/get_worn_icon_file"><aside class="declaration">proc </aside>get_worn_icon_file<aside>(body_type, slot_name, default_icon, inhands) 
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/game/objects/items.dm#L1037">
+        <img src="git.png" width="16" height="16" title="code&#x2F;game&#x2F;objects&#x2F;items.dm 1037"/></a></aside>
+        </h3>
+        <p>gets what icon dmi file shall be used for the on-mob sprite</p><h3 id="proc/get_worn_icon_state"><aside class="declaration">proc </aside>get_worn_icon_state<aside>(slot_name, inhands) 
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/game/objects/items.dm#L1065">
+        <img src="git.png" width="16" height="16" title="code&#x2F;game&#x2F;objects&#x2F;items.dm 1065"/></a></aside>
+        </h3>
+        <p>Returns the state that should be used for the on-mob icon</p><h3 id="proc/make_worn_icon"><aside class="declaration">proc </aside>make_worn_icon<aside>(body_type, slot_name, inhands, default_icon, default_layer) 
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/game/objects/items.dm#L1006">
+        <img src="git.png" width="16" height="16" title="code&#x2F;game&#x2F;objects&#x2F;items.dm 1006"/></a></aside>
+        </h3>
+        <p>Generates worn icon for sprites on-mob.</p><h3 id="proc/unequipped"><aside class="declaration">proc </aside>unequipped<aside>(/<a href="mob.html">mob</a>/unequipper, slot) 
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/game/objects/items.dm#L323">
+        <img src="git.png" width="16" height="16" title="code&#x2F;game&#x2F;objects&#x2F;items.dm 323"/></a></aside>
+        </h3>
+        <p>Called when an item is removed from an equipment slot. The loc should still be in the unequipper.</p></main>
+<footer>
+    tgmc.dme
+    <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/tree/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20">2ace34f</a>
+        (master) &mdash; <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/src/dmdoc/README.md">dmdoc 1.3.0</a></footer>
+</body>
+</html>

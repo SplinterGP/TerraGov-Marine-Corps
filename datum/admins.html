@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <base href="../" />
+    <link rel="stylesheet" href="dmdoc.css" />
+    <title>&#x2F;datum&#x2F;admins - byond</title>
+</head>
+<body>
+<header>
+    <a href="index.html">byond</a> -
+    <a href="index.html#modules">Modules</a> -
+    <a href="index.html#types">Types</a>
+ &mdash; <a href="datum/admins.html#var">Var Details</a> - <a href="datum/admins.html#proc">Proc Details</a></header>
+<main>
+<h1>admins <aside>/<a href="datum.html">datum</a>/<a href="datum/admins.html">admins</a></aside>
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/modules/admin/holder.dm#L1">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;admin&#x2F;holder.dm 1"/></a></h1>
+
+<table class="summary" cellspacing="0"><tr><td colspan="2"><h2>Vars</h2></td></tr>
+            <tr><th><a href="datum/admins.html#var/deadmined">deadmined</a></th><td>Whether this admin is currently deadminned or not</td></tr>
+            <tr><th><a href="datum/admins.html#var/ghost_interact">ghost_interact</a></th><td>Whether this admin has ghost interaction enabled</td></tr>
+            <tr><th><a href="datum/admins.html#var/invisimined">invisimined</a></th><td>Whether this admin is invisiminning</td></tr><tr><td colspan="2"><h2>Procs</h2></td></tr>
+            <tr><th><a href="datum/admins.html#proc/poll_list_panel">poll_list_panel</a></th><td>Shows a list of all current and future polls and buttons to edit or delete them or create a new poll.</td></tr>
+            <tr><th><a href="datum/admins.html#proc/poll_management_panel">poll_management_panel</a></th><td>Show the options for creating a poll or editing its parameters along with its linked options.</td></tr>
+            <tr><th><a href="datum/admins.html#proc/poll_option_panel">poll_option_panel</a></th><td>Show the options for creating a poll option or editing its parameters.</td></tr>
+            <tr><th><a href="datum/admins.html#proc/poll_option_parse_href">poll_option_parse_href</a></th><td>Processes topic data from poll option panel.</td></tr>
+            <tr><th><a href="datum/admins.html#proc/poll_parse_href">poll_parse_href</a></th><td>Processes topic data from poll management panel.</td></tr>
+            <tr><th><a href="datum/admins.html#proc/proccall_advanced">proccall_advanced</a></th><td>Holds a reference to the client incase something happens to them</td></tr></table>
+    <h2 id="var">Var Details</h2><h3 id="var/deadmined"><aside class="declaration">var </aside>deadmined
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/modules/admin/holder.dm#L15">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;admin&#x2F;holder.dm 15"/></a></h3>
+        <p>Whether this admin is currently deadminned or not</p><h3 id="var/ghost_interact"><aside class="declaration">var </aside>ghost_interact
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/modules/admin/holder.dm#L17">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;admin&#x2F;holder.dm 17"/></a></h3>
+        <p>Whether this admin has ghost interaction enabled</p><h3 id="var/invisimined"><aside class="declaration">var </aside>invisimined
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/modules/admin/holder.dm#L19">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;admin&#x2F;holder.dm 19"/></a></h3>
+        <p>Whether this admin is invisiminning</p><h2 id="proc">Proc Details</h2><h3 id="proc/poll_list_panel"><aside class="declaration">proc </aside>poll_list_panel<aside>() 
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/modules/admin/verbs/poll_managment.dm#L73">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;admin&#x2F;verbs&#x2F;poll_managment.dm 73"/></a></aside>
+        </h3>
+        <p>Shows a list of all current and future polls and buttons to edit or delete them or create a new poll.</p><h3 id="proc/poll_management_panel"><aside class="declaration">proc </aside>poll_management_panel<aside>(/<a href="datum.html">datum</a>/<a href="datum/poll_question.html">poll_question</a>/poll) 
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/modules/admin/verbs/poll_managment.dm#L97">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;admin&#x2F;verbs&#x2F;poll_managment.dm 97"/></a></aside>
+        </h3>
+        <p>Show the options for creating a poll or editing its parameters along with its linked options.</p><h3 id="proc/poll_option_panel"><aside class="declaration">proc </aside>poll_option_panel<aside>(/<a href="datum.html">datum</a>/<a href="datum/poll_question.html">poll_question</a>/poll, /<a href="datum.html">datum</a>/<a href="datum/poll_option.html">poll_option</a>/option) 
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/modules/admin/verbs/poll_managment.dm#L483">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;admin&#x2F;verbs&#x2F;poll_managment.dm 483"/></a></aside>
+        </h3>
+        <p>Show the options for creating a poll option or editing its parameters.</p><h3 id="proc/poll_option_parse_href"><aside class="declaration">proc </aside>poll_option_parse_href<aside>(/list/href_list, /<a href="datum.html">datum</a>/<a href="datum/poll_question.html">poll_question</a>/poll, /<a href="datum.html">datum</a>/<a href="datum/poll_option.html">poll_option</a>/option) 
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/modules/admin/verbs/poll_managment.dm#L542">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;admin&#x2F;verbs&#x2F;poll_managment.dm 542"/></a></aside>
+        </h3>
+        <p>Processes topic data from poll option panel.</p>
+<p>Reads through returned form data and assigns data to the option datum, creating a new one if required, before passing it to be saved.
+Also does some simple error checking to ensure the option will be valid before creation.</p><h3 id="proc/poll_parse_href"><aside class="declaration">proc </aside>poll_parse_href<aside>(/list/href_list, /<a href="datum.html">datum</a>/<a href="datum/poll_question.html">poll_question</a>/poll) 
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/modules/admin/verbs/poll_managment.dm#L244">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;admin&#x2F;verbs&#x2F;poll_managment.dm 244"/></a></aside>
+        </h3>
+        <p>Processes topic data from poll management panel.</p>
+<p>Reads through returned form data and assigns data to the poll datum, creating a new one if required, before passing it to be saved.
+Also does some simple error checking to ensure the poll will be valid before creation.</p><h3 id="proc/proccall_advanced"><aside class="declaration">proc </aside>proccall_advanced<aside>() 
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/modules/admin/debug_verbs.dm#L52">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;admin&#x2F;debug_verbs.dm 52"/></a></aside>
+        </h3>
+        <p>Holds a reference to the client incase something happens to them</p></main>
+<footer>
+    tgmc.dme
+    <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/tree/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20">2ace34f</a>
+        (master) &mdash; <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/src/dmdoc/README.md">dmdoc 1.3.0</a></footer>
+</body>
+</html>

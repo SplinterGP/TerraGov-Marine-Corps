@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    
+    <link rel="stylesheet" href="dmdoc.css" />
+    <title>(global) - byond</title>
+</head>
+<body>
+<header>
+    <a href="index.html">byond</a> -
+    <a href="index.html#modules">Modules</a> -
+    <a href="index.html#types">Types</a>
+ &mdash; <a href="global.html#var">Var Details</a> - <a href="global.html#proc">Proc Details</a></header>
+<main>
+<h1>(global)
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/(unknown)">
+        <img src="git.png" width="16" height="16" title="(unknown)"/></a></h1>
+
+<table class="summary" cellspacing="0"><tr><td colspan="2"><h2>Vars</h2></td></tr>
+            <tr><th><a href="global.html#var/Failsafe">Failsafe</a></th><td>Failsafe</td></tr>
+            <tr><th><a href="global.html#var/Master">Master</a></th><td>StonedMC</td></tr>
+            <tr><th><a href="global.html#var/SSrunechat">SSrunechat</a></th><td></td></tr>
+            <tr><th><a href="global.html#var/SStimer">SStimer</a></th><td></td></tr><tr><td colspan="2"><h2>Procs</h2></td></tr>
+            <tr><th><a href="global.html#proc/Gibberish">Gibberish</a></th><td>Turn text into complete gibberish!</td></tr>
+            <tr><th><a href="global.html#proc/LeftAndRightOfDir">LeftAndRightOfDir</a></th><td>Returns the left and right dir of the input dir, used for AI stutter step while attacking</td></tr>
+            <tr><th><a href="global.html#proc/_addtimer">_addtimer</a></th><td>Create a new timer and insert it in the queue.
+You should not call this directly, and should instead use the addtimer macro, which includes source information.</td></tr>
+            <tr><th><a href="global.html#proc/can_see">can_see</a></th><td>Step-towards method of determining whether one atom can see another. Similar to viewers()</td></tr>
+            <tr><th><a href="global.html#proc/cheap_get_humans_near">cheap_get_humans_near</a></th><td>Returns a list of humans via get_dist and same z level method, very cheap compared to range()</td></tr>
+            <tr><th><a href="global.html#proc/cultslur">cultslur</a></th><td>Makes you talk like you got cult stunned, which is slurring but with some dark messages</td></tr>
+            <tr><th><a href="global.html#proc/deadchat_broadcast">deadchat_broadcast</a></th><td>Displays a message in deadchat, sent by source. Source is not linkified, message is, to avoid stuff like character names to be linkified.
+Automatically gives the class deadsay to the whole message (message + source)</td></tr>
+            <tr><th><a href="global.html#proc/deltimer">deltimer</a></th><td>Delete a timer</td></tr>
+            <tr><th><a href="global.html#proc/generate_asset_name">generate_asset_name</a></th><td>Generate a filename for this asset
+The same asset will always lead to the same asset name
+(Generated names do not include file extention.)</td></tr>
+            <tr><th><a href="global.html#proc/get_areas">get_areas</a></th><td>Takes: Area type as text string or as typepath OR an instance of the area. Returns: A list of all areas of that type in the world.</td></tr>
+            <tr><th><a href="global.html#proc/get_bbox_of_atoms">get_bbox_of_atoms</a></th><td>Get a bounding box of a list of atoms.</td></tr>
+            <tr><th><a href="global.html#proc/get_wound_type">get_wound_type</a></th><td>WOUND DEFINITIONS</td></tr>
+            <tr><th><a href="global.html#proc/getpois">getpois</a></th><td>Returns a list of all items of interest with their name</td></tr>
+            <tr><th><a href="global.html#proc/json_deserialize_datum">json_deserialize_datum</a></th><td>Convert a list of json to datum</td></tr>
+            <tr><th><a href="global.html#proc/json_serialize_datum">json_serialize_datum</a></th><td>Convert a datum into a json blob</td></tr>
+            <tr><th><a href="global.html#proc/load_map">load_map</a></th><td>Shortcut function to parse a map and apply it to the world.</td></tr>
+            <tr><th><a href="global.html#proc/load_poll_data">load_poll_data</a></th><td>Loads all current and future server polls and their options to store both as datums.</td></tr>
+            <tr><th><a href="global.html#proc/make_datum_references_lists">make_datum_references_lists</a></th><td>Initial Building</td></tr>
+            <tr><th><a href="global.html#proc/md5asfile">md5asfile</a></th><td>Save file as an external file then md5 it.
+Used because md5ing files stored in the rsc sometimes gives incorrect md5 results.</td></tr>
+            <tr><th><a href="global.html#proc/md5filepath">md5filepath</a></th><td>Returns the md5 of a file at a given path.</td></tr>
+            <tr><th><a href="global.html#proc/movespeed_data_null_check">movespeed_data_null_check</a></th><td>Checks if a move speed modifier is valid and not missing any data</td></tr>
+            <tr><th><a href="global.html#proc/playsound">playsound</a></th><td>*Proc used to play a sound.</td></tr>
+            <tr><th><a href="global.html#proc/playsound_z">playsound_z</a></th><td>Play sound for all online mobs on a given Z-level. Good for ambient sounds.</td></tr>
+            <tr><th><a href="global.html#proc/playsound_z_humans">playsound_z_humans</a></th><td>Play a sound for all cliented humans and ghosts by zlevel</td></tr>
+            <tr><th><a href="global.html#proc/playsound_z_xenos">playsound_z_xenos</a></th><td>Play a sound for all cliented xenos and ghosts by hive on a zlevel</td></tr>
+            <tr><th><a href="global.html#proc/pretty_string_from_reagent_list">pretty_string_from_reagent_list</a></th><td>Convert reagent list to a printable string for logging etc</td></tr>
+            <tr><th><a href="global.html#proc/propagate_network">propagate_network</a></th><td>remove the old powernet and replace it with a new one throughout the network.</td></tr>
+            <tr><th><a href="global.html#proc/qdel">qdel</a></th><td>Should be treated as a replacement for the 'del' keyword. Datums passed to this will be given a chance to clean up references to allow the GC to collect them.</td></tr>
+            <tr><th><a href="global.html#proc/send2adminchat">send2adminchat</a></th><td>Sends a message to TGS admin chat channels.</td></tr>
+            <tr><th><a href="global.html#proc/send2chat">send2chat</a></th><td>Sends a message to TGS chat channels.</td></tr>
+            <tr><th><a href="global.html#proc/slur">slur</a></th><td>Makes you speak like you're drunk</td></tr>
+            <tr><th><a href="global.html#proc/stars">stars</a></th><td>Convert random parts of a passed in message to stars</td></tr>
+            <tr><th><a href="global.html#proc/stutter">stutter</a></th><td>Adds stuttering to the message passed in</td></tr>
+            <tr><th><a href="global.html#proc/timeleft">timeleft</a></th><td>Get the remaining deciseconds on a timer</td></tr>
+            <tr><th><a href="global.html#proc/url2htmlloader">url2htmlloader</a></th><td>Return html to load a url.
+for use inside of browse() calls to html assets that might be loaded on a cdn.</td></tr></table>
+    <h2 id="var">Var Details</h2><h3 id="var/Failsafe"><aside class="declaration">var </aside>Failsafe
+            <aside>&ndash; /static/<a href="datum.html">datum</a>/controller/failsafe</aside>
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/controllers/failsafe.dm#L7">
+        <img src="git.png" width="16" height="16" title="code&#x2F;controllers&#x2F;failsafe.dm 7"/></a></h3>
+        <p>Failsafe</p>
+<p>Pretty much pokes the MC to make sure it's still alive.</p><h3 id="var/Master"><aside class="declaration">var </aside>Master
+            <aside>&ndash; /static/<a href="datum.html">datum</a>/<a href="datum/controller/master.html">controller/master</a></aside>
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/controllers/master.dm#L12">
+        <img src="git.png" width="16" height="16" title="code&#x2F;controllers&#x2F;master.dm 12"/></a></h3>
+        <p>StonedMC</p>
+<p>Designed to properly split up a given tick among subsystems
+Note: if you read parts of this code and think &quot;why is it doing it that way&quot;
+Odds are, there is a reason</p><h3 id="var/SSrunechat"><aside class="declaration">var </aside>SSrunechat
+            <aside>&ndash; /static/<a href="datum.html">datum</a>/<a href="datum/controller/subsystem.html">controller/subsystem</a>/<a href="datum/controller/subsystem/runechat.html">runechat</a></aside>
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/controllers/subsystem/runechat.dm#L18">
+        <img src="git.png" width="16" height="16" title="code&#x2F;controllers&#x2F;subsystem&#x2F;runechat.dm 18"/></a></h3>
+        <h1 id="runechat-subsystem">Runechat Subsystem</h1>
+<p>Maintains a timer-like system to handle destruction of runechat messages. Much of this code is modeled
+after or adapted from the timer subsystem.</p>
+<p>Note that this has the same structure for storing and queueing messages as the timer subsystem does
+for handling timers: the bucket_list is a list of chatmessage datums, each of which are the head
+of a circularly linked list. Any given index in bucket_list could be null, representing an empty bucket.</p><h3 id="var/SStimer"><aside class="declaration">var </aside>SStimer
+            <aside>&ndash; /static/<a href="datum.html">datum</a>/<a href="datum/controller/subsystem.html">controller/subsystem</a>/<a href="datum/controller/subsystem/timer.html">timer</a></aside>
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/controllers/subsystem/timer.dm#L19">
+        <img src="git.png" width="16" height="16" title="code&#x2F;controllers&#x2F;subsystem&#x2F;timer.dm 19"/></a></h3>
+        <h1 id="timer-subsystem">Timer Subsystem</h1>
+<p>Handles creation, callbacks, and destruction of timed events.</p>
+<p>It is important to understand the buckets used in the timer subsystem are just a series of circular doubly-linked
+lists. The object at a given index in bucket_list is a /datum/timedevent, the head of a circular list, which has prev
+and next references for the respective elements in that bucket's circular list.</p><h2 id="proc">Proc Details</h2><h3 id="proc/Gibberish"><aside class="declaration">proc </aside>Gibberish<aside>(text, replace_characters, chance) 
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/modules/mob/mob_helpers.dm#L261">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;mob_helpers.dm 261"/></a></aside>
+        </h3>
+        <p>Turn text into complete gibberish!</p>
+<p>text is the inputted message, replace_characters will cause original letters to be replaced and chance are the odds that a character gets modified.</p><h3 id="proc/LeftAndRightOfDir"><aside class="declaration">proc </aside>LeftAndRightOfDir<aside>(direction, diagonal_check) 
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/__HELPERS/unsorted.dm#L1359">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__HELPERS&#x2F;unsorted.dm 1359"/></a></aside>
+        </h3>
+        <p>Returns the left and right dir of the input dir, used for AI stutter step while attacking</p><h3 id="proc/_addtimer"><aside class="declaration">proc </aside>_addtimer<aside>(/<a href="datum.html">datum</a>/callback/callback, wait, flags, file, line) 
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/controllers/subsystem/timer.dm#L528">
+        <img src="git.png" width="16" height="16" title="code&#x2F;controllers&#x2F;subsystem&#x2F;timer.dm 528"/></a></aside>
+        </h3>
+        <p>Create a new timer and insert it in the queue.
+You should not call this directly, and should instead use the addtimer macro, which includes source information.</p>
+<p>Arguments:</p>
+<ul>
+<li>callback the callback to call on timer finish</li>
+<li>wait deciseconds to run the timer for</li>
+<li>flags flags for this timer, see: code__DEFINES\subsystems.dm</li>
+</ul><h3 id="proc/can_see"><aside class="declaration">proc </aside>can_see<aside>(/<a href="atom.html">atom</a>/source, /<a href="atom.html">atom</a>/target, length) 
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/__HELPERS/unsorted.dm#L523">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__HELPERS&#x2F;unsorted.dm 523"/></a></aside>
+        </h3>
+        <p>Step-towards method of determining whether one atom can see another. Similar to viewers()</p><h3 id="proc/cheap_get_humans_near"><aside class="declaration">proc </aside>cheap_get_humans_near<aside>(/<a href="atom.html">atom</a>/<a href="atom/movable.html">movable</a>/source, distance) 
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/__HELPERS/ai.dm#L13">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__HELPERS&#x2F;ai.dm 13"/></a></aside>
+        </h3>
+        <p>Returns a list of humans via get_dist and same z level method, very cheap compared to range()</p><h3 id="proc/cultslur"><aside class="declaration">proc </aside>cultslur<aside>(phrase) 
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/modules/mob/mob_helpers.dm#L192">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;mob_helpers.dm 192"/></a></aside>
+        </h3>
+        <p>Makes you talk like you got cult stunned, which is slurring but with some dark messages</p><h3 id="proc/deadchat_broadcast"><aside class="declaration">proc </aside>deadchat_broadcast<aside>(message, source, /<a href="mob.html">mob</a>/follow_target, /<a href="turf.html">turf</a>/turf_target, speaker_key, message_type) 
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/__HELPERS/mobs.dm#L183">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__HELPERS&#x2F;mobs.dm 183"/></a></aside>
+        </h3>
+        <p>Displays a message in deadchat, sent by source. Source is not linkified, message is, to avoid stuff like character names to be linkified.
+Automatically gives the class deadsay to the whole message (message + source)</p><h3 id="proc/deltimer"><aside class="declaration">proc </aside>deltimer<aside>(id) 
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/controllers/subsystem/timer.dm#L577">
+        <img src="git.png" width="16" height="16" title="code&#x2F;controllers&#x2F;subsystem&#x2F;timer.dm 577"/></a></aside>
+        </h3>
+        <p>Delete a timer</p>
+<p>Arguments:</p>
+<ul>
+<li>id a timerid or a /datum/timedevent</li>
+</ul><h3 id="proc/generate_asset_name"><aside class="declaration">proc </aside>generate_asset_name<aside>(file) 
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/__HELPERS/icons.dm#L941">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__HELPERS&#x2F;icons.dm 941"/></a></aside>
+        </h3>
+        <p>Generate a filename for this asset
+The same asset will always lead to the same asset name
+(Generated names do not include file extention.)</p><h3 id="proc/get_areas"><aside class="declaration">proc </aside>get_areas<aside>(areatype, subtypes) 
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/__HELPERS/unsorted.dm#L1373">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__HELPERS&#x2F;unsorted.dm 1373"/></a></aside>
+        </h3>
+        <p>Takes: Area type as text string or as typepath OR an instance of the area. Returns: A list of all areas of that type in the world.</p><h3 id="proc/get_bbox_of_atoms"><aside class="declaration">proc </aside>get_bbox_of_atoms<aside>(/list/atoms) 
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/__HELPERS/game.dm#L31">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__HELPERS&#x2F;game.dm 31"/></a></aside>
+        </h3>
+        <p>Get a bounding box of a list of atoms.</p>
+<p>Arguments:</p>
+<ul>
+<li>atoms - List of atoms. Can accept output of view() and range() procs.</li>
+</ul>
+<p>Returns: list(x1, y1, x2, y2)</p><h3 id="proc/get_wound_type"><aside class="declaration">proc </aside>get_wound_type<aside>(type, damage) 
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/modules/organs/wound.dm#L224">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;organs&#x2F;wound.dm 224"/></a></aside>
+        </h3>
+        <p>WOUND DEFINITIONS</p><h3 id="proc/getpois"><aside class="declaration">proc </aside>getpois<aside>(mobs_only, skip_mindless) 
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/__HELPERS/unsorted.dm#L1335">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__HELPERS&#x2F;unsorted.dm 1335"/></a></aside>
+        </h3>
+        <p>Returns a list of all items of interest with their name</p><h3 id="proc/json_deserialize_datum"><aside class="declaration">proc </aside>json_deserialize_datum<aside>(/list/jsonlist, /list/options, target_type, strict_target_type) 
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/datums/datum.dm#L190">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;datum.dm 190"/></a></aside>
+        </h3>
+        <p>Convert a list of json to datum</p><h3 id="proc/json_serialize_datum"><aside class="declaration">proc </aside>json_serialize_datum<aside>(/<a href="datum.html">datum</a>/D, /list/options) 
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/datums/datum.dm#L181">
+        <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;datum.dm 181"/></a></aside>
+        </h3>
+        <p>Convert a datum into a json blob</p><h3 id="proc/load_map"><aside class="declaration">proc </aside>load_map<aside>(dmm_file, x_offset, y_offset, z_offset, cropMap, measureOnly, no_changeturf, x_lower, x_upper, y_lower, y_upper, placeOnTop) 
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/modules/mapping/reader.dm#L44">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mapping&#x2F;reader.dm 44"/></a></aside>
+        </h3>
+        <p>Shortcut function to parse a map and apply it to the world.</p>
+<ul>
+<li><code>dmm_file</code>: A .dmm file to load (Required).</li>
+<li><code>x_offset</code>, <code>y_offset</code>, <code>z_offset</code>: Positions representign where to load the map (Optional).</li>
+<li><code>cropMap</code>: When true, the map will be cropped to fit the existing world dimensions (Optional).</li>
+<li><code>measureOnly</code>: When true, no changes will be made to the world (Optional).</li>
+<li><code>no_changeturf</code>: When true, <a href="turf.html" title="/turf">turf/AfterChange</a> won't be called on loaded turfs</li>
+<li><code>x_lower</code>, <code>x_upper</code>, <code>y_lower</code>, <code>y_upper</code>: Coordinates (relative to the map) to crop to (Optional).</li>
+<li><code>placeOnTop</code>: Whether to use <a href="turf.html" title="/turf">turf/PlaceOnTop</a> rather than <a href="turf.html" title="/turf">turf/ChangeTurf</a> (Optional).</li>
+</ul><h3 id="proc/load_poll_data"><aside class="declaration">proc </aside>load_poll_data<aside>() 
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/modules/admin/verbs/poll_managment.dm#L696">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;admin&#x2F;verbs&#x2F;poll_managment.dm 696"/></a></aside>
+        </h3>
+        <p>Loads all current and future server polls and their options to store both as datums.</p><h3 id="proc/make_datum_references_lists"><aside class="declaration">proc </aside>make_datum_references_lists<aside>() 
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/__HELPERS/global_lists.dm#L17">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__HELPERS&#x2F;global_lists.dm 17"/></a></aside>
+        </h3>
+        <p>Initial Building</p><h3 id="proc/md5asfile"><aside class="declaration">proc </aside>md5asfile<aside>(file) 
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/__HELPERS/files.dm#L81">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__HELPERS&#x2F;files.dm 81"/></a></aside>
+        </h3>
+        <p>Save file as an external file then md5 it.
+Used because md5ing files stored in the rsc sometimes gives incorrect md5 results.</p><h3 id="proc/md5filepath"><aside class="declaration">proc </aside>md5filepath<aside>(path) 
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/__HELPERS/files.dm#L76">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__HELPERS&#x2F;files.dm 76"/></a></aside>
+        </h3>
+        <p>Returns the md5 of a file at a given path.</p><h3 id="proc/movespeed_data_null_check"><aside class="declaration">proc </aside>movespeed_data_null_check<aside>(/list/data) 
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/modules/mob/mob_movespeed.dm#L143">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;mob_movespeed.dm 143"/></a></aside>
+        </h3>
+        <p>Checks if a move speed modifier is valid and not missing any data</p><h3 id="proc/playsound"><aside class="declaration">proc </aside>playsound<aside>(/<a href="atom.html">atom</a>/source, soundin, vol, vary, sound_range, falloff, is_global, frequency, channel) 
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/game/sound.dm#L11">
+        <img src="git.png" width="16" height="16" title="code&#x2F;game&#x2F;sound.dm 11"/></a></aside>
+        </h3>
+        <p>*Proc used to play a sound.</p>
+<ul>
+<li>Arguments:</li>
+<li>
+<ul>
+<li>source: what played the sound.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>soundin: the .ogg to use.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>vol: the initial volume of the sound, 0 is no sound at all, 75 is loud queen screech.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>vary: to make the frequency var of the sound vary (mostly unused).</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>sound_range: the maximum theoretical range (in tiles) of the sound, by default is equal to the volume.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>falloff: how the sound's volume decreases with distance, low is fast decrease and high is slow decrease. <br />
+A good representation is: 'byond applies a volume reduction to the sound every X tiles', where X is falloff.</li>
+</ul>
+</li>
+</ul><h3 id="proc/playsound_z"><aside class="declaration">proc </aside>playsound_z<aside>(z, soundin, _volume) 
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/game/sound.dm#L145">
+        <img src="git.png" width="16" height="16" title="code&#x2F;game&#x2F;sound.dm 145"/></a></aside>
+        </h3>
+        <p>Play sound for all online mobs on a given Z-level. Good for ambient sounds.</p><h3 id="proc/playsound_z_humans"><aside class="declaration">proc </aside>playsound_z_humans<aside>(z, soundin, _volume) 
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/game/sound.dm#L154">
+        <img src="git.png" width="16" height="16" title="code&#x2F;game&#x2F;sound.dm 154"/></a></aside>
+        </h3>
+        <p>Play a sound for all cliented humans and ghosts by zlevel</p><h3 id="proc/playsound_z_xenos"><aside class="declaration">proc </aside>playsound_z_xenos<aside>(z, soundin, _volume, hive_type) 
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/game/sound.dm#L164">
+        <img src="git.png" width="16" height="16" title="code&#x2F;game&#x2F;sound.dm 164"/></a></aside>
+        </h3>
+        <p>Play a sound for all cliented xenos and ghosts by hive on a zlevel</p><h3 id="proc/pretty_string_from_reagent_list"><aside class="declaration">proc </aside>pretty_string_from_reagent_list<aside>(/list/reagent_list) 
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/modules/reagents/reagents.dm#L173">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;reagents&#x2F;reagents.dm 173"/></a></aside>
+        </h3>
+        <p>Convert reagent list to a printable string for logging etc</p><h3 id="proc/propagate_network"><aside class="declaration">proc </aside>propagate_network<aside>(/<a href="obj.html">obj</a>/<a href="obj/structure/cable.html">structure/cable</a>/C, /<a href="datum.html">datum</a>/powernet/PN, skip_assigned_powernets) 
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/modules/power/power.dm#L152">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;power&#x2F;power.dm 152"/></a></aside>
+        </h3>
+        <p>remove the old powernet and replace it with a new one throughout the network.</p><h3 id="proc/qdel"><aside class="declaration">proc </aside>qdel<aside>(/<a href="datum.html">datum</a>/D, force, ...) 
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/controllers/subsystem/garbage.dm#L270">
+        <img src="git.png" width="16" height="16" title="code&#x2F;controllers&#x2F;subsystem&#x2F;garbage.dm 270"/></a></aside>
+        </h3>
+        <p>Should be treated as a replacement for the 'del' keyword. Datums passed to this will be given a chance to clean up references to allow the GC to collect them.</p><h3 id="proc/send2adminchat"><aside class="declaration">proc </aside>send2adminchat<aside>(category, message) 
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/__HELPERS/chat.dm#L69">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__HELPERS&#x2F;chat.dm 69"/></a></aside>
+        </h3>
+        <p>Sends a message to TGS admin chat channels.</p>
+<p>category - The category of the mssage.
+message - The message to send.</p><h3 id="proc/send2chat"><aside class="declaration">proc </aside>send2chat<aside>(message, channel_tag) 
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/__HELPERS/chat.dm#L44">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__HELPERS&#x2F;chat.dm 44"/></a></aside>
+        </h3>
+        <p>Sends a message to TGS chat channels.</p>
+<p>message - The message to send.
+channel_tag - Required. If &quot;&quot;, the message with be sent to all connected (Game-type for TGS3) channels. Otherwise, it will be sent to TGS4 channels with that tag (Delimited by ','s).</p><h3 id="proc/slur"><aside class="declaration">proc </aside>slur<aside>(phrase) 
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/modules/mob/mob_helpers.dm#L156">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;mob_helpers.dm 156"/></a></aside>
+        </h3>
+        <p>Makes you speak like you're drunk</p><h3 id="proc/stars"><aside class="declaration">proc </aside>stars<aside>(phrase, probability) 
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/modules/mob/mob_helpers.dm#L138">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;mob_helpers.dm 138"/></a></aside>
+        </h3>
+        <p>Convert random parts of a passed in message to stars</p>
+<ul>
+<li>phrase - the string to convert</li>
+<li>probability - probability any character gets changed</li>
+</ul>
+<p>This proc is dangerously laggy, avoid it or die</p><h3 id="proc/stutter"><aside class="declaration">proc </aside>stutter<aside>(phrase) 
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/modules/mob/mob_helpers.dm#L235">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;mob_helpers.dm 235"/></a></aside>
+        </h3>
+        <p>Adds stuttering to the message passed in</p><h3 id="proc/timeleft"><aside class="declaration">proc </aside>timeleft<aside>(id) 
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/controllers/subsystem/timer.dm#L598">
+        <img src="git.png" width="16" height="16" title="code&#x2F;controllers&#x2F;subsystem&#x2F;timer.dm 598"/></a></aside>
+        </h3>
+        <p>Get the remaining deciseconds on a timer</p>
+<p>Arguments:</p>
+<ul>
+<li>id a timerid or a /datum/timedevent</li>
+</ul><h3 id="proc/url2htmlloader"><aside class="declaration">proc </aside>url2htmlloader<aside>(url) 
+        
+    
+            <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/blob/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20/code/__HELPERS/type2type.dm#L462">
+        <img src="git.png" width="16" height="16" title="code&#x2F;__HELPERS&#x2F;type2type.dm 462"/></a></aside>
+        </h3>
+        <p>Return html to load a url.
+for use inside of browse() calls to html assets that might be loaded on a cdn.</p></main>
+<footer>
+    tgmc.dme
+    <a href="https://github.com/SplinterGP/TerraGov-Marine-Corps/tree/2ace34ffaf288c5adf2bb2adf2e6fc5b148a0b20">2ace34f</a>
+        (master) &mdash; <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/src/dmdoc/README.md">dmdoc 1.3.0</a></footer>
+</body>
+</html>
