@@ -596,32 +596,41 @@ inaccurate. Don't worry if force is ever negative, it won't runtime.
 	icon_state = "flashlight"
 	attach_icon = "flashlight_a"
 	light_mod = 6
+	light_system = MOVABLE_LIGHT
 	slot = "rail"
 	materials = list(/datum/material/metal = 100, /datum/material/glass = 20)
 	flags_attach_features = ATTACH_REMOVABLE|ATTACH_ACTIVATION
 	attachment_action_type = /datum/action/item_action/toggle
 	activation_sound = 'sound/items/flashlight.ogg'
 
-/obj/item/attachable/flashlight/activate_attachment(mob/living/user, turn_off)
-	if(turn_off && !(master_gun.flags_gun_features & GUN_FLASHLIGHT_ON))
-		return
 
+/obj/item/attachable/flashlight/activate_attachment(mob/living/user)
+	turn_light(user, !light_on)
+
+/obj/item/attachable/flashlight/turn_light(mob/user, toggle_on)
+	. = ..()
+	
+	if(. != CHECKS_PASSED)
+		return
+	
 	if(ismob(master_gun.loc) && !user)
 		user = master_gun.loc
-
-	if(master_gun.flags_gun_features & GUN_FLASHLIGHT_ON)
+	if(!toggle_on & light_on)
 		icon_state = "flashlight"
 		attach_icon = "flashlight_a"
 		master_gun.set_light_range(0)
 		master_gun.set_light_power(0)
 		master_gun.set_light_on(FALSE)
-	else
+		light_on = FALSE
+	else if(toggle_on & !light_on)
 		icon_state = "flashlight-on"
 		attach_icon = "flashlight_a-on"
 		master_gun.set_light_range(light_mod)
 		master_gun.set_light_power(3)
 		master_gun.set_light_on(TRUE)
-
+		light_on = TRUE
+	else
+		return
 	master_gun.flags_gun_features ^= GUN_FLASHLIGHT_ON
 
 	master_gun.update_attachable(slot)
@@ -629,10 +638,7 @@ inaccurate. Don't worry if force is ever negative, it won't runtime.
 	for(var/X in master_gun.actions)
 		var/datum/action/A = X
 		A.update_button_icon()
-	return TRUE
-
-
-
+	
 
 /obj/item/attachable/flashlight/attackby(obj/item/I, mob/user, params)
 	. = ..()
@@ -782,6 +788,11 @@ inaccurate. Don't worry if force is ever negative, it won't runtime.
 	scoped_accuracy_mod = SCOPE_RAIL_MINI
 	scope_zoom_mod = TRUE
 	has_nightvision = FALSE
+
+/obj/item/attachable/scope/mini/tx11
+	name = "TX-11 mini rail scope"
+	icon_state = "tx11scope"
+	attach_icon = "tx11scope"
 
 /obj/item/attachable/scope/mini/m4ra
 	name = "T-45 rail scope"
@@ -1184,6 +1195,10 @@ inaccurate. Don't worry if force is ever negative, it won't runtime.
 	name = "HK-11 stock"
 	icon_state = "m41a"
 
+/obj/item/attachable/stock/irremoveable/tx11
+	name = "TX-11 stock"
+	icon_state = "tx11stock"
+
 ////////////// Underbarrel Attachments ////////////////////////////////////
 
 
@@ -1214,11 +1229,14 @@ inaccurate. Don't worry if force is ever negative, it won't runtime.
 	if(master_gun.active_attachable == src)
 		if(user)
 			to_chat(user, "<span class='notice'>You are no longer using [src].</span>")
-		master_gun.on_gun_attachment_detach(src)
+			UnregisterSignal(user, COMSIG_ITEM_EXCLUSIVE_TOGGLE)
+		master_gun.on_gun_attachment_detach(null, src)
 		icon_state = initial(icon_state)
 	else if(!turn_off)
 		if(user)
 			to_chat(user, "<span class='notice'>You are now using [src].</span>")
+			SEND_SIGNAL(user, COMSIG_ITEM_EXCLUSIVE_TOGGLE, user)
+			RegisterSignal(user, COMSIG_ITEM_EXCLUSIVE_TOGGLE, .proc/deactivate)
 		master_gun.on_gun_attachment_attach(src)
 		icon_state += "-on"
 
@@ -1227,7 +1245,9 @@ inaccurate. Don't worry if force is ever negative, it won't runtime.
 		A.update_button_icon()
 	return TRUE
 
-
+/obj/item/attachable/attached_gun/proc/deactivate(datum/source, mob/living/user)
+	SIGNAL_HANDLER
+	activate_attachment(user, TRUE)
 
 //The requirement for an attachable being alt fire is AMMO CAPACITY > 0.
 /obj/item/attachable/attached_gun/grenade
@@ -1619,7 +1639,7 @@ inaccurate. Don't worry if force is ever negative, it won't runtime.
 	else if(turn_off)
 		return //Was already offB
 	else
-		if(user.action_busy)
+		if(user.do_actions)
 			return
 		if(!do_after(user, 1 SECONDS, TRUE, src, BUSY_ICON_BAR))
 			return
@@ -1648,10 +1668,10 @@ inaccurate. Don't worry if force is ever negative, it won't runtime.
 
 
 /obj/item/attachable/bipod/proc/retract_bipod(datum/source)
-	SIGNAL_HANDLER_DOES_SLEEP
+	SIGNAL_HANDLER
 	if(!ismob(source))
 		return
-	activate_attachment(source, TRUE)
+	INVOKE_ASYNC(src, .proc/activate_attachment, source, TRUE)
 	to_chat(source, "<span class='warning'>Losing support, the bipod retracts!</span>")
 	playsound(source, 'sound/machines/click.ogg', 15, 1, 4)
 
@@ -1690,7 +1710,7 @@ inaccurate. Don't worry if force is ever negative, it won't runtime.
 		icon_state = "lace"
 		attach_icon = "lace_a"
 	else
-		if(user.action_busy)
+		if(user.do_actions)
 			return
 		if(!do_after(user, 0.5 SECONDS, TRUE, src, BUSY_ICON_BAR))
 			return
@@ -1748,4 +1768,3 @@ inaccurate. Don't worry if force is ever negative, it won't runtime.
 	for(var/X in master_gun.actions)
 		var/datum/action/A = X
 		A.update_button_icon()
-
