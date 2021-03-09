@@ -1,7 +1,7 @@
 /**
-  * Shows a list of currently running polls a player can vote/has voted on
-  *
-  */
+ * Shows a list of currently running polls a player can vote/has voted on
+ *
+ */
 /mob/new_player/proc/handle_playeR_DBRANKSing()
 	var/list/output = list("<div align='center'><B>Player polls</B><hr><table>")
 	var/rs = REF(src)
@@ -14,9 +14,9 @@
 	src << browse(jointext(output, ""),"window=playerpolllist;size=500x300")
 
 /**
-  * Redirects a player to the correct poll window based on poll type.
-  *
-  */
+ * Redirects a player to the correct poll window based on poll type.
+ *
+ */
 /mob/new_player/proc/poll_player(datum/poll_question/poll)
 	if(!poll)
 		return
@@ -36,11 +36,11 @@
 			poll_player_irv(poll)
 
 /**
-  * Shows voting window for an option type poll, listing its options and relevant details.
-  *
-  * If already voted on, the option a player voted for is pre-selected.
-  *
-  */
+ * Shows voting window for an option type poll, listing its options and relevant details.
+ *
+ * If already voted on, the option a player voted for is pre-selected.
+ *
+ */
 /mob/new_player/proc/poll_player_option(datum/poll_question/poll)
 	var/datum/db_query/query_option_get_voted = SSdbcore.NewQuery({"
 		SELECT optionid FROM [format_table_name("poll_vote")]
@@ -80,11 +80,11 @@
 	src << browse(jointext(output, ""),"window=playerpoll;size=500x250")
 
 /**
-  * Shows voting window for a text response type poll, listing its relevant details.
-  *
-  * If already responded to, the saved response of a player is shown.
-  *
-  */
+ * Shows voting window for a text response type poll, listing its relevant details.
+ *
+ * If already responded to, the saved response of a player is shown.
+ *
+ */
 /mob/new_player/proc/poll_player_text(datum/poll_question/poll)
 	var/datum/db_query/query_text_get_replytext = SSdbcore.NewQuery({"
 		SELECT replytext FROM [format_table_name("poll_textreply")]
@@ -117,11 +117,11 @@
 	src << browse(jointext(output, ""),"window=playerpoll;size=500x500")
 
 /**
-  * Shows voting window for a rating type poll, listing its options and relevant details.
-  *
-  * If already voted on, the options a player voted for are pre-selected.
-  *
-  */
+ * Shows voting window for a rating type poll, listing its options and relevant details.
+ *
+ * If already voted on, the options a player voted for are pre-selected.
+ *
+ */
 /mob/new_player/proc/poll_player_rating(datum/poll_question/poll)
 	var/datum/db_query/query_rating_get_votes = SSdbcore.NewQuery({"
 		SELECT optionid, rating FROM [format_table_name("poll_vote")]
@@ -172,11 +172,11 @@
 	src << browse(jointext(output, ""),"window=playerpoll;size=500x500")
 
 /**
-  * Shows voting window for a multiple choice type poll, listing its options and relevant details.
-  *
-  * If already voted on, the options a player voted for are pre-selected.
-  *
-  */
+ * Shows voting window for a multiple choice type poll, listing its options and relevant details.
+ *
+ * If already voted on, the options a player voted for are pre-selected.
+ *
+ */
 /mob/new_player/proc/poll_player_multi(datum/poll_question/poll)
 	var/datum/db_query/query_multi_get_votes = SSdbcore.NewQuery({"
 		SELECT optionid FROM [format_table_name("poll_vote")]
@@ -216,11 +216,11 @@
 	src << browse(jointext(output, ""),"window=playerpoll;size=500x300")
 
 /**
-  * Shows voting window for an IRV type poll, listing its options and relevant details.
-  *
-  * If already voted on, the options are sorted how a player voted for them, otherwise they are randomly shuffled.
-  *
-  */
+ * Shows voting window for an IRV type poll, listing its options and relevant details.
+ *
+ * If already voted on, the options are sorted how a player voted for them, otherwise they are randomly shuffled.
+ *
+ */
 /mob/new_player/proc/poll_player_irv(datum/poll_question/poll)
 	var/datum/asset/irv_assets = get_asset_datum(/datum/asset/group/irv)
 	irv_assets.send(src)
@@ -238,16 +238,15 @@
 	var/list/prepared_options = list()
 	//if they've already voted we use the order they voted in plus a shuffle of any options they haven't voted for, if any
 	if(length(voted_for))
-		for(var/vote_id in voted_for)
+		var/list/option_copy = poll.options.Copy()
+		for(var/vote_id in option_copy)
 			for(var/o in poll.options)
 				var/datum/poll_option/option = o
 				if(option.option_id == vote_id)
 					prepared_options += option
-		var/list/shuffle_options = poll.options - prepared_options
-		if(length(shuffle_options))
-			shuffle_options = shuffle(shuffle_options)
-			for(var/shuffled in shuffle_options)
-				prepared_options += shuffled
+					option_copy -= option
+		prepared_options += shuffle(option_copy)
+
 	//otherwise just shuffle the options
 	else
 		prepared_options = shuffle(poll.options)
@@ -304,13 +303,13 @@
 	src << browse(jointext(output, ""),"window=playerpoll;size=500x500")
 
 /**
-  * Runs some poll validation before a vote is processed.
-  *
-  * Checks a player is who they claim to be and that a poll is actually still running.
-  * Also loads the vote_id to pass onto single-option and text polls.
-  * Increments the vote count when successful.
-  *
-  */
+ * Runs some poll validation before a vote is processed.
+ *
+ * Checks a player is who they claim to be and that a poll is actually still running.
+ * Also loads the vote_id to pass onto single-option and text polls.
+ * Increments the vote count when successful.
+ *
+ */
 /mob/new_player/proc/vote_on_poll_handler(datum/poll_question/poll, href_list)
 	if(!SSdbcore.Connect())
 		to_chat(src, "<span class='danger'>Failed to establish database connection.</span>")
@@ -375,9 +374,9 @@
 		to_chat(usr, "<span class='notice'>Vote successful.</span>")
 
 /**
-  * Processes vote form data and saves results to the database for an option type poll.
-  *
-  */
+ * Processes vote form data and saves results to the database for an option type poll.
+ *
+ */
 /mob/new_player/proc/vote_on_poll_option(datum/poll_question/poll, href_list, admin_rank, sql_poll_id, vote_id)
 	if(!SSdbcore.Connect())
 		to_chat(src, "<span class='danger'>Failed to establish database connection.</span>")
@@ -407,9 +406,9 @@
 	return TRUE
 
 /**
-  * Processes response form data and saves results to the database for a text response type poll.
-  *
-  */
+ * Processes response form data and saves results to the database for a text response type poll.
+ *
+ */
 /mob/new_player/proc/vote_on_poll_text(href_list, admin_rank, sql_poll_id, vote_id)
 	if(!SSdbcore.Connect())
 		to_chat(src, "<span class='danger'>Failed to establish database connection.</span>")
@@ -439,9 +438,9 @@
 	return TRUE
 
 /**
-  * Processes vote form data and saves results to the database for a rating type poll.
-  *
-  */
+ * Processes vote form data and saves results to the database for a rating type poll.
+ *
+ */
 /mob/new_player/proc/vote_on_poll_rating(datum/poll_question/poll, list/href_list, admin_rank, sql_poll_id)
 	if(!SSdbcore.Connect())
 		to_chat(src, "<span class='danger'>Failed to establish database connection.</span>")
@@ -467,8 +466,11 @@
 	)
 
 	var/sql_votes = list()
+	var/list/option_copy = poll.options.Copy()
 	for(var/h in href_list)
-		var/datum/poll_option/option = locate(h) in poll.options
+		var/datum/poll_option/option = locate(h) in option_copy
+		if (!option)
+			to_chat(src, "<span class='warning'>invalid votes were trimmed from your ballot, please revote .</span>")
 		sql_votes += list(list(
 			"id" = votes["[option.option_id]"],
 			"pollid" = sql_poll_id,
@@ -482,9 +484,9 @@
 	return TRUE
 
 /**
-  * Processes vote form data and saves results to the database for a multiple choice type poll.
-  *
-  */
+ * Processes vote form data and saves results to the database for a multiple choice type poll.
+ *
+ */
 /mob/new_player/proc/vote_on_poll_multi(datum/poll_question/poll, list/href_list, admin_rank, sql_poll_id)
 	if(!SSdbcore.Connect())
 		to_chat(src, "<span class='danger'>Failed to establish database connection.</span>")
@@ -529,9 +531,9 @@
 	return TRUE
 
 /**
-  * Processes vote form data and saves results to the database for an IRV type poll.
-  *
-  */
+ * Processes vote form data and saves results to the database for an IRV type poll.
+ *
+ */
 /mob/new_player/proc/vote_on_poll_irv(datum/poll_question/poll, list/href_list, admin_rank, sql_poll_id)
 	if(!SSdbcore.Connect())
 		to_chat(src, "<span class='danger'>Failed to establish database connection.</span>")

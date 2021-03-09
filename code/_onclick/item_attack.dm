@@ -133,11 +133,11 @@
 	return I.attack(src, user)
 
 
-// Proximity_flag is 1 if this afterattack was called on something adjacent, in your square, or on your person.
+// has_proximity is TRUE if this afterattack was called on something adjacent, in your square, or on your person.
 // Click parameters is the params string from byond Click() code, see that documentation.
-/obj/item/proc/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
-	SEND_SIGNAL(src, COMSIG_ITEM_AFTERATTACK, target, user, proximity_flag, click_parameters)
-	SEND_SIGNAL(user, COMSIG_MOB_ITEM_AFTERATTACK, target, user, proximity_flag, click_parameters)
+/obj/item/proc/afterattack(atom/target, mob/user, has_proximity, click_parameters)
+	SEND_SIGNAL(src, COMSIG_ITEM_AFTERATTACK, target, user, has_proximity, click_parameters)
+	SEND_SIGNAL(user, COMSIG_MOB_ITEM_AFTERATTACK, target, user, has_proximity, click_parameters)
 	return
 
 
@@ -155,23 +155,7 @@
 
 	if(!force)
 		return FALSE
-
-	if(M != user && !prob(user.melee_accuracy)) // Attacking yourself can't miss
-		user.do_attack_animation(M)
-		playsound(loc, 'sound/weapons/punchmiss.ogg', 25, TRUE)
-		if(user in viewers(COMBAT_MESSAGE_RANGE, M))
-			M.visible_message("<span class='danger'>[user] misses [M] with \the [src]!</span>",
-				"<span class='userdanger'>[user] missed us with \the [src]!</span>", null, COMBAT_MESSAGE_RANGE)
-		else
-			M.visible_message("<span class='avoidharm'>\The [src] misses [M]!</span>",
-				"<span class='avoidharm'>\The [src] narrowly misses you!</span>", null, COMBAT_MESSAGE_RANGE)
-		log_combat(user, M, "attacked", src, "(missed) (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damtype)])")
-		if(force && !user.mind?.bypass_ff && !M.mind?.bypass_ff && user.faction == M.faction)
-			var/turf/T = get_turf(M)
-			log_ffattack("[key_name(user)] missed [key_name(M)] with \the [src] in [AREACOORD(T)].")
-			msg_admin_ff("[ADMIN_TPMONTY(user)] missed [ADMIN_TPMONTY(M)] with \the [src] in [ADMIN_VERBOSEJMP(T)].")
-		return FALSE
-
+	
 	. = M.attacked_by(src, user)
 	if(. && hitsound)
 		playsound(loc, hitsound, 25, TRUE)

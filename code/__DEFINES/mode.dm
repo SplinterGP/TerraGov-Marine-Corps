@@ -52,7 +52,6 @@
 #define MODE_INFESTATION_X_MINOR		"Xenomorph Minor Victory"
 #define MODE_INFESTATION_M_MINOR		"Marine Minor Victory"
 #define MODE_INFESTATION_DRAW_DEATH		"DRAW: Mutual Annihilation"
-#define MODE_INFESTATION_DRAW_RETREAT	"DRAW: Marine Retreat"
 
 #define MODE_BATTLEFIELD_NT_MAJOR		"NT PMC Major Success"
 #define MODE_BATTLEFIELD_M_MAJOR		"Marine Major Success"
@@ -125,3 +124,8 @@
 #define COUNT_IGNORE_XENO_SPECIAL_AREA	(1<<2)
 
 #define COUNT_IGNORE_ALIVE_SSD (COUNT_IGNORE_HUMAN_SSD|COUNT_IGNORE_XENO_SSD)
+
+#define SILO_PRICE 900
+
+//The minimum round time before siloless timer can start (13:00)
+#define MINIMUM_TIME_SILO_LESS_COLLAPSE 36000 

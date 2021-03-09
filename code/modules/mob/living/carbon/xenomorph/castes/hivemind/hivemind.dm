@@ -47,11 +47,6 @@
 		core = null
 	return ..()
 
-/obj/flamer_fire/CanPass(atom/movable/mover, turf/target)
-	if(isxenohivemind(mover))
-		return FALSE
-	return ..()
-
 /mob/living/carbon/xenomorph/hivemind/flamer_fire_act()
 	forceMove(get_turf(core))
 	to_chat(src, "<span class='xenonotice'>We were on top of fire, we got moved to our core.")
@@ -164,9 +159,6 @@
 /mob/living/carbon/xenomorph/hivemind/CtrlShiftClickOn(atom/A)
 	return FALSE
 
-/mob/living/carbon/xenomorph/hivemind/ShiftClickOn(atom/A)
-	return FALSE
-
 /mob/living/carbon/xenomorph/hivemind/CtrlClickOn(atom/A)
 	return FALSE
 
@@ -183,6 +175,11 @@
 ///Hiveminds specifically have no status hud element
 ///mob/living/carbon/xenomorph/hivemind/med_hud_set_status()
 //	return
+
+/obj/flamer_fire/CanAllowThrough(atom/movable/mover, turf/target)
+	. = ..()
+	if(isxenohivemind(mover))
+		return FALSE
 
 
 // =================
@@ -214,9 +211,9 @@
 
 //hivemind cores
 
-/obj/effect/alien/hivemindcore/attack_alien(mob/living/carbon/xenomorph/X)
+/obj/effect/alien/hivemindcore/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
 	if(isxenoqueen(X))
-		var/choice = alert(X, "Are you sure you want to destroy the hivemind?", "Destroy hivemind", "Yes", "Cancel")
+		var/choice = tgui_alert(X, "Are you sure you want to destroy the hivemind?", "Destroy hivemind", list("Yes", "Cancel"))
 		if(choice == "Yes")
 			deconstruct(FALSE)
 			return

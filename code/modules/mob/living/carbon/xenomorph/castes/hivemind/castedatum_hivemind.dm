@@ -52,6 +52,7 @@
 		/datum/action/xeno_action/return_to_core,
 		/datum/action/xeno_action/plant_weeds/slow,
 		/datum/action/xeno_action/psychic_whisper,
+		/datum/action/xeno_action/activable/rally_hive/hivemind,
 		/datum/action/xeno_action/materialization,
 	)
 
@@ -80,6 +81,7 @@
 		/datum/action/xeno_action/plant_weeds/slow,
 		/datum/action/xeno_action/psychic_whisper,
 		/datum/action/xeno_action/activable/psychic_cure,
+		/datum/action/xeno_action/activable/rally_hive/hivemind,
 		/datum/action/xeno_action/materialization,
 	)
 
@@ -105,6 +107,7 @@
 		/datum/action/xeno_action/psychic_whisper,
 		/datum/action/xeno_action/activable/psychic_cure,
 		/datum/action/xeno_action/toggle_pheromones,
+		/datum/action/xeno_action/activable/rally_hive/hivemind,
 		/datum/action/xeno_action/materialization,
 	)
 
@@ -132,5 +135,6 @@
 		/datum/action/xeno_action/choose_resin,
 		/datum/action/xeno_action/toggle_pheromones,
 		/datum/action/xeno_action/activable/secrete_resin/slow,
+		/datum/action/xeno_action/activable/rally_hive/hivemind,
 		/datum/action/xeno_action/materialization,
 	)
