@@ -466,8 +466,22 @@
 	icon_state = "holster"
 	hold = /obj/item/storage/internal/tie/holster
 
+/obj/item/clothing/tie/storage/holster/on_attached(obj/item/clothing/under/S, mob/user as mob)
+	. = ..()
+	has_suit.verbs += /obj/item/clothing/tie/holster/verb/holster_verb
+
+/obj/item/clothing/tie/storage/holster/on_removed()
+	has_suit.verbs -= /obj/item/clothing/tie/holster/verb/holster_verb
+	return ..()
+
+/obj/item/clothing/tie/storage/holster/verb/holster_verb()
+	set name = "Holster"
+	set category = "Object"
+	set src in usr
+
 /obj/item/storage/internal/tie/holster
 	storage_slots = 1
+	draw_mode = 1
 	max_w_class = WEIGHT_CLASS_BULKY
 	can_hold = list(
 		/obj/item/weapon/gun/pistol,
