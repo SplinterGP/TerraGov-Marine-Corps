@@ -275,3 +275,6 @@
 
 /datum/action/xeno_action/activable/proc/on_deactivation()
 	return
+
+/datum/action/xeno_action/toggleable
+	var/plasma_passive_cost

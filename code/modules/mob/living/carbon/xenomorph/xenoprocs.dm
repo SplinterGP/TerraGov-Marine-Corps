@@ -317,6 +317,10 @@
 	plasma_stored = min(plasma_stored + value, xeno_caste.plasma_max)
 	update_action_button_icons()
 
+/mob/living/carbon/xenomorph/proc/adjust_plasma(value)
+	plasma_stored = max(min(plasma_stored + value, xeno_caste.plasma_max), 0)
+	update_action_button_icons()
+
 
 
 

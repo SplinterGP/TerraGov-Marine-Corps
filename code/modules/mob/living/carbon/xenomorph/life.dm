@@ -125,42 +125,42 @@
 
 /mob/living/carbon/xenomorph/proc/handle_living_plasma_updates()
 	var/turf/T = loc
-	if(!T || !istype(T))
+	if(!istype(T))
 		return
-	if(plasma_stored >= xeno_caste.plasma_max * xeno_caste.plasma_regen_limit)
-		return
+
+	var/list/plasma_mod = list()
+	var/list/plasma_to_add = list()
+
+	SEND_SIGNAL(src, COMSIG_XENOMORPH_PLASMA_UPDATE, plasma_mod, plasma_to_add)
 
 	if(current_aura)
-		if(plasma_stored < 5)
-			use_plasma(plasma_stored)
-			current_aura = null
-			to_chat(src, "<span class='warning'>We have run out of plasma and stopped emitting pheromones.</span>")
-		else
-			use_plasma(5)
-
-	if(HAS_TRAIT(src, TRAIT_NOPLASMAREGEN))
-		hud_set_plasma()
-		return
-	var/list/plasma_mod = list()
-
-	SEND_SIGNAL(src, COMSIG_XENOMORPH_PLASMA_REGEN, plasma_mod)
-
+		plasma_to_add += 5
 
 	var/plasma_gain_multiplier = 1
 	for(var/i in plasma_mod)
 		plasma_gain_multiplier *= i
 
-	if(!(locate(/obj/effect/alien/weeds) in T) && !(xeno_caste.caste_flags & CASTE_INNATE_PLASMA_REGEN))
-		hud_set_plasma() // since we used some plasma via the aura
-		return
+	var/plasma_gain = 0
 
-	var/plasma_gain = xeno_caste.plasma_gain
+	if(((locate(/obj/effect/alien/weeds) in T) || (xeno_caste.caste_flags & CASTE_INNATE_PLASMA_REGEN) || (plasma_stored >= xeno_caste.plasma_max * xeno_caste.plasma_regen_limit)) && !HAS_TRAIT(src, TRAIT_NOPLASMAREGEN))
+		plasma_gain = xeno_caste.plasma_gain
 
 	if(lying_angle || resting)
 		plasma_gain *= 2  // Doubled for resting
 
+	plasma_gain *= plasma_gain_multiplier
 
-	gain_plasma(plasma_gain * plasma_gain_multiplier)
+	for(var/add_plasma in plasma_to_add)
+		plasma_gain += add_plasma
+
+	adjust_plasma(plasma_gain)
+
+	if(plasma_stored <= 0)
+		SEND_SIGNAL(src, COMSIG_XENOMORPH_OUT_OF_PLASMA)
+		if(current_aura)
+			current_aura = null
+			to_chat(src, "<span class='warning'>We have run out of plasma and stopped emitting pheromones.</span>")
+
 	hud_set_plasma() //update plasma amount on the plasma mob_hud
 
 /mob/living/carbon/xenomorph/proc/handle_aura_emiter()
